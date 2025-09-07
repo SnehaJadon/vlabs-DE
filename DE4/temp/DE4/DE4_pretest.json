@@ -1,0 +1,66 @@
+{
+    "version": 2.0,
+    "questions": [
+      {
+        "question": "1. What does GNSS stand for?",
+        "answers": {
+          "a": "General Navigation Survey System",
+          "b": "Global Navigation Satellite System",
+          "c": "Ground Navigation Survey Station",
+          "d": "Global Network Satellite Service"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "2. What is the primary purpose of a GNSS Base Station in land surveying?",
+        "answers": {
+          "a": "To move around and collect data points",
+          "b": "To act as a fixed reference point for accuracy corrections",
+          "c": "To fly the drone during the survey",
+          "d": "To capture aerial images of the land"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "3. Why are Ground Control Points (GCPs) used in a land survey?",
+        "answers": {
+          "a": "To mark property boundaries",
+          "b": "To assist the drone in landing",
+          "c": "To improve georeferencing and positional accuracy",
+          "d": "To measure temperature variations"
+        },
+        "explanations": {},
+        "correctAnswer": "c",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "4. What equipment is mounted on a tribrach during a land survey?",
+        "answers": {
+          "a": "GNSS Rover Receiver",
+          "b": "GNSS Base Receiver",
+          "c": "Drone Camera",
+          "d": "Compass"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "5. What is the role of a GNSS Rover in a survey?",
+        "answers": {
+          "a": "To remain stationary for data correction",
+          "b": "To capture aerial images",
+          "c": "To collect location data across the survey area",
+          "d": "To mark GCP points permanently"
+        },
+        "explanations": {},
+        "correctAnswer": "c",
+        "difficulty": "beginner"
+      }
+    ]
+  }
+  

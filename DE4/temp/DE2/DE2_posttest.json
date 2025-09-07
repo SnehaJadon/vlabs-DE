@@ -1,0 +1,65 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. If a motor fails to spin after testing with a multimeter, what should you do next?",
+      "answers": {
+        "a": "Replace the drone battery",
+        "b": "Replace the faulty motor",
+        "c": "Change the propeller only",
+        "d": "Adjust the GPS module"
+      },
+      "explanations": {},
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. How can you tell if an ESC is damaged after a multimeter test?",
+      "answers": {
+        "a": "No voltage output or irregular readings",
+        "b": "Propellers spin faster than normal",
+        "c": "The drone flies but without stability",
+        "d": "The battery drains slower"
+      },
+      "explanations": {},
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. What precaution should be taken before working on a drone's motor or ESC?",
+      "answers": {
+        "a": "Keep the drone powered on",
+        "b": "Disconnect the battery and power off the drone",
+        "c": "Use high-speed propellers",
+        "d": "Increase the battery voltage"
+      },
+      "explanations": {},
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. What is the role of a multimeter in diagnosing motor and ESC issues?",
+      "answers": {
+        "a": "To measure battery temperature",
+        "b": "To check electrical continuity and voltage output",
+        "c": "To balance propellers",
+        "d": "To test camera functionality"
+      },
+      "explanations": {},
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. If multiple motors fail simultaneously, what is the most likely issue?",
+      "answers": {
+        "a": "Weak propellers",
+        "b": "Faulty power distribution or damaged ESCs",
+        "c": "Camera misalignment",
+        "d": "Overheated battery"
+      },
+      "explanations": {},
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    }
+  ]
+}

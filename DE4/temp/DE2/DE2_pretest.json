@@ -1,0 +1,65 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. What is the primary function of an ESC (Electronic Speed Controller) in a drone?",
+      "answers": {
+        "a": "To control the flight altitude",
+        "b": "To regulate the speed and power supplied to the motors",
+        "c": "To stabilize the camera gimbal",
+        "d": "To manage the drone’s GPS system"
+      },
+      "explanations": {},
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. Which tool is commonly used to test motor continuity and connections?",
+      "answers": {
+        "a": "Soldering iron",
+        "b": "Multimeter",
+        "c": "Oscilloscope",
+        "d": "Power drill"
+      },
+      "explanations": {},
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. What could cause a drone motor to stop spinning?",
+      "answers": {
+        "a": "Weak GPS signal",
+        "b": "Faulty ESC or motor connections",
+        "c": "Overcharged battery",
+        "d": "Incorrect propeller size"
+      },
+      "explanations": {},
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. What should be checked first when diagnosing a motor issue?",
+      "answers": {
+        "a": "Remote controller settings",
+        "b": "Physical damage and loose wiring",
+        "c": "Battery charge level",
+        "d": "Propeller alignment"
+      },
+      "explanations": {},
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. How can you test whether an ESC is functioning correctly?",
+      "answers": {
+        "a": "Replace the ESC without testing",
+        "b": "Check for physical cracks only",
+        "c": "Use a multimeter to check voltage output",
+        "d": "Fly the drone to see if it spins"
+      },
+      "explanations": {},
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    }
+  ]
+}

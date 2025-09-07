@@ -1,0 +1,66 @@
+{
+    "version": 2.0,
+    "questions": [
+      {
+        "question": "1. What should you do if a drone's solder joint is loose?",
+        "answers": {
+          "a": "Apply glue to hold the joint in place",
+          "b": "Re-solder the joint using appropriate soldering tools",
+          "c": "Ignore it if the drone powers on",
+          "d": "Replace the entire circuit board"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "2. How can you identify a damaged PMU in a drone?",
+        "answers": {
+          "a": "Unstable flight performance and power issues",
+          "b": "Propeller imbalance",
+          "c": "Camera feed distortion",
+          "d": "Increased drone speed"
+        },
+        "explanations": {},
+        "correctAnswer": "a",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "3. Which of these is a sign of a faulty drone battery?",
+        "answers": {
+          "a": "Battery swelling or puffing",
+          "b": "Faster flight speed",
+          "c": "Smooth propeller movement",
+          "d": "Decreased propeller noise"
+        },
+        "explanations": {},
+        "correctAnswer": "a",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "4. Why is it important to check for physical damage on a drone during maintenance?",
+        "answers": {
+          "a": "To ensure better propeller efficiency",
+          "b": "To identify components that may fail during flight",
+          "c": "To make the drone look new",
+          "d": "To avoid recalibrating the drone"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "5. If a drone component is beyond repair, what should be the next step?",
+        "answers": {
+          "a": "Continue using the drone with limited functionality",
+          "b": "Replace the damaged component with a new one",
+          "c": "Ignore the issue if the drone flies",
+          "d": "Increase the battery voltage to compensate"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "intermediate"
+      }
+    ]
+  }
+  

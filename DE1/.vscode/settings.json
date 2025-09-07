@@ -1,0 +1,11 @@
+{
+    "liveServer.settings.port": 5506,
+    "editor.tokenColorCustomizations": {
+        "comments": "",
+        "textMateRules": []
+    },
+    "files.associations": {
+        "iostream": "cpp"
+    }
+    
+}

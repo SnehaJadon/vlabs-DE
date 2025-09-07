@@ -1,0 +1,66 @@
+{
+    "version": 2.0,
+    "questions": [
+      {
+        "question": "1. How does a GNSS Rover receive real-time correction signals?",
+        "answers": {
+          "a": "By communicating with satellites directly",
+          "b": "Through the GNSS Base Station using RTK",
+          "c": "Using the drone’s flight controller",
+          "d": "From pre-stored coordinates"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "2. Which of the following improves the accuracy of drone mapping?",
+        "answers": {
+          "a": "Using GCPs and RTK corrections",
+          "b": "Flying the drone at a lower altitude",
+          "c": "Increasing the drone’s speed",
+          "d": "Using a higher-resolution camera only"
+        },
+        "explanations": {},
+        "correctAnswer": "a",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "3. Why is it important to calibrate a drone before starting the survey?",
+        "answers": {
+          "a": "To balance the drone’s weight",
+          "b": "To avoid losing the drone",
+          "c": "To ensure accurate data collection and flight stability",
+          "d": "To save battery life"
+        },
+        "explanations": {},
+        "correctAnswer": "c",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "4. What does the hole in the tribrach help with during a GNSS Base setup?",
+        "answers": {
+          "a": "For air ventilation",
+          "b": "To center the instrument accurately over a survey point",
+          "c": "To hold the receiver firmly",
+          "d": "To measure distances directly"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "5. What is the main benefit of using a GNSS-based land survey over traditional methods?",
+        "answers": {
+          "a": "Faster data collection and higher accuracy",
+          "b": "Reduced equipment costs",
+          "c": "Less need for training",
+          "d": "Eliminates the need for GCPs"
+        },
+        "explanations": {},
+        "correctAnswer": "a",
+        "difficulty": "beginner"
+      }
+    ]
+  }
+  

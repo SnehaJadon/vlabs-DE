@@ -1,0 +1,66 @@
+{
+    "version": 2.0,
+    "questions": [
+      {
+        "question": "1. What is the primary function of the flight controller in a drone?",
+        "answers": {
+          "a": "Control the movement of the drone",
+          "b": "Control the camera settings",
+          "c": "Provide power to the drone components",
+          "d": "Transmit signals to the receiver"
+        },
+        "explanations": {},
+        "correctAnswer": "a",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "2. How do you identify if the flight controller is not receiving power?",
+        "answers": {
+          "a": "By checking the LED status",
+          "b": "By inspecting the battery",
+          "c": "By checking the propellers",
+          "d": "By recalibrating the drone"
+        },
+        "explanations": {},
+        "correctAnswer": "a",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "3. What is the first thing to check when diagnosing receiver issues in a drone?",
+        "answers": {
+          "a": "The drone's firmware version",
+          "b": "The receiver's physical connections",
+          "c": "The battery voltage",
+          "d": "The LED status on the controller"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "4. What should you do if you find physical damage on the flight controller?",
+        "answers": {
+          "a": "Ignore it if the drone is still flying",
+          "b": "Replace the damaged component",
+          "c": "Try recalibrating the flight controller",
+          "d": "Increase the battery power"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "advanced"
+      },
+      {
+        "question": "5. Why is it important to check the receiver's connections with the PMU and ESC?",
+        "answers": {
+          "a": "To ensure the drone's stability during flight",
+          "b": "To enhance the camera performance",
+          "c": "To reduce the weight of the drone",
+          "d": "To improve flight speed"
+        },
+        "explanations": {},
+        "correctAnswer": "a",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+  

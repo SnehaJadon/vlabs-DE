@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Vlab</title>
+  <!-- CDN -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+  <!-- CDN END -->
+
+  <script src="./lib/anime.min.js"></script>
+  <script src="./lib/chart.min.js"></script>
+  <script src="./lib/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="./lib/typed.js"></script>
+  <script src="./lib/jsplumb.js"></script>
+
+  <link href="./css/layout.css" rel="stylesheet" />
+  <link href="./css/progressBar.css" rel="stylesheet" />
+  <link href="./css/imgs.css" rel="stylesheet" />
+  <link href="./css/scenes.css" rel="stylesheet" />
+  <link href="./css/quiz.css" rel="stylesheet" />
+  <link href="./css/certificate.css" rel="stylesheet" />
+  <link href="./css/chart.css" rel="stylesheet" />
+  <link href="./css/component_styling.css" rel="stylesheet" />
+  <link href="./css/sliders.css" rel="stylesheet" />
+  <link href="./css/devlopment.css" rel="stylesheet" />
+
+  <link href="./toolkit/fix_styling.css" rel="stylesheet" />
+  <link href="./toolkit/toolkit.css" rel="stylesheet" />
+  <link href="./toolkit/toolkit.js" rel="stylesheet" />
+  <link href="./toolkit/main_spinner.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="main-spinner">
+    <div class="loader">
+      <span></span>
+    </div>
+    <p class="text">For Better User Experience, <span>reset zoom to 100% <br />(by pressing 'Ctrl + 0')</span> and
+      <span>refresh the page (by pressing 'Ctrl + R')</span>
+    </p>
+  </div>
+
+  <!-- <div class="development-tools" style="position: fixed; top: 0; z-index: 100000; background-color: white;">
+    <div class="group mouse-position">
+      <div class="head">
+        <span class="title">Mouse Position</span>
+        <button class="copy size-css">
+          Copy
+        </button>
+      </div>
+      <div>
+        <div class="input-box mouse-left">
+          <span class="label">Left</span>
+          <input style="width: 50px;" type="text" class="height" value="0" readonly>
+          <span class="unit">px</span>
+        </div>
+        <div class="input-box mouse-top">
+          <span class="label">Top</span>
+          <input style="width: 50px;" type="text" class="height" value="0" readonly>
+          <span class="unit">px</span>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="main-container">
+
+    <!-- * Drawer Side Navbar -->
+    <nav id="drawer" style="display: none;">
+      <div class="codelab-time-container" style="display: none"></div>
+      <div class="steps">
+        <ol>
+          <!-- Todo Add this by Layout.js <li>
+            <a>
+              <span class="step">
+                <span class="step-text"> Circuit Formulation C-Filter. </span>
+              </span>
+            </a>
+          </li> -->
+          <li>
+            <a>
+              <span class="step">
+                <span class="step-text"> Circuit Formulation C-Filter. </span>
+              </span>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </nav>
+    <div class="right-container">
+      <div class="right-box">
+
+        <!-- * Progress bar -->
+        <section class="progress-bar">
+          <div class="progressbar">
+            <!-- Todo link it with step-text add these step dynamicly using Layout.js -->
+            <div class="progress" id="progress"></div>
+            <div class="progress-step progress-step-active" data-tiltle=""></div>
+            <!-- <div class="progress-step" data-title=""></div> -->
+            <!-- <div class="progress-step progress-step-active" data-tiltle=""></div>
+            <div class="progress-step" data-title=""></div> -->
+          </div>
+        </section>
+
+        <!-- ! Main window -->
+        <main class="main-window">
+
+          <!-- transparent layer for question -->
+          <div class="transparent-box"></div>
+
+          <!-- * Anime Header -->
+          <section class="anime-header">
+            <p></p>
+            <div class="btn-popup-box">
+              <p class="btn-popup">Procedure</p>
+              <p class="btn-popup">Nomenclature</p>
+              <p class="btn-popup">Mathematical Expressions</p>
+              <img alt="" class="btn-popup-window" src="" />
+              <div class="btn-popup-window blur"></div>
+            </div>
+            <img class="btn btn-mute" src="./src/images/template_imgs/speech_off_btn.png"
+              style="height: 40px; z-index: 5; position: absolute; right: 5px" title="Click To Mute" />
+          </section>
+
+          <!-- * Project Intro Goes Here -->
+          <div class="project-intro">
+            <span class="heading">Objective:</span>
+            <p class="description">
+              To Set the Beam and Slab using Flex System.
+            </p>
+            <span class="heading">Apparatus Materials:</span>
+            <p class="description">
+              Tripod Stand, CT prop, fourway head, Aluminium Beam, Timber
+              Beam, Plywood Sheathing, Beam Forming support.
+            </p>
+          </div>
+
+          <!-- * Content Adder Box -->
+          <ul class="content-adder-box">
+            <!-- <li class="btn content-adder">Footing</li> -->
+          </ul>
+
+          <!-- * Blink Arrow -->
+          <img class="blinkArrow" src="./src/images/template_imgs/blinkArrow.webp" />
+
+          <!-- ! Anime main -->
+          <section class="anime-main">
+
+            <!-- * Steps Heading Template -->
+            <div class="step-heading">
+              <p class="step-title">Step 1</p>
+              <p class="step-description">
+                Calculation of cross-sectional area:
+              </p>
+            </div>
+
+            <!-- * Welcome note About Experiment-->
+            <!-- <div class="welcome-box">
+              <img alt="" class="iit-logo" src="./src/images/iit-delhi-logo.png" />
+              <div class="title">
+                <span>Welcome to</span>
+                <span>Foundation in Beam Formwork Experiment</span>
+                <span>of Formwork Technology in Civil Engineering Virtual
+                  Lab</span>
+                <span>developed by Prof. K. N. Jha, Department of Civil
+                  Engineering, IIT Delhi.</span>
+              </div>
+              <div class="prof-description">
+                <img alt="Prof. K. N. Jha Image" class="prof-img" src="./src/images/prof_image_kn_jha.jpeg" />
+                <span>Prof. K. N. Jha</span>
+                <span>IIT Delhi</span>
+              </div>
+            </div> -->
+
+            <!-- * Student Name section -->
+            <form class="user-input" onsubmit="return false">
+              <p>Enter your name:</p>
+              <input id="stuName" name="" type="text" />
+              <p class="error">Please enter your name before start</p>
+              <input class="btn" id="nameSubmitBtn" type="submit" value="Start" />
+            </form>
+
+            <!-- * for taking input from the user -->
+             <input type="text" id="inputBox">
+             <p id="error"></p>
+
+            <!-- * Graphs -->
+            <div class="graph_box graph_box0">
+              <canvas class="graph graph0"></canvas>
+            </div>
+            <div class="graph_box graph_box1">
+              <canvas class="graph graph1"></canvas>
+            </div>
+            <div class="graph_box graph_box2">
+              <canvas class="graph graph2"></canvas>
+            </div>
+            <div class="graph_box graph_box3">
+              <canvas class="graph graph3"></canvas>
+            </div>
+            <div class="graph_box graph_box4">
+              <canvas class="graph graph4"></canvas>
+            </div>
+            <div class="graph_box graph_box5">
+              <canvas class="graph graph5"></canvas>
+            </div>
+            <div class="graph_box graph_box6">
+              <canvas class="graph graph6"></canvas>
+            </div>
+            <div class="graph_box graph_box7">
+              <canvas class="graph graph7"></canvas>
+            </div>
+            <div class="graph_box graph_box8">
+              <canvas class="graph graph8"></canvas>
+            </div>
+            <div class="graph_box graph_box9">
+              <canvas class="graph graph9"></canvas>
+            </div>
+            <div class="graph_box graph_box10">
+              <canvas class="graph graph10"></canvas>
+            </div>
+
+            <!-- Label for graph -->
+            <span class="temp xLabel" style="background-color: transparent; font-weight: bold"></span>
+            <span class="temp yLabel" style="background-color: transparent; font-weight: bold"></span>
+            <span class="temp xLabel2" style="background-color: transparent; font-weight: bold"></span>
+            <span class="temp yLabel2" style="background-color: transparent; font-weight: bold"></span>
+
+            <!-- ! for cicuit formulation -->
+            <!-- Connection Points -->
+            <div class="vertex-box">
+              <p class="vertex" id="vertex1" title="1">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex2" title="2">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex3" title="3">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex4" title="4">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex5" title="5">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex6" title="6">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex7" title="7">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex8" title="8">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex9" title="9">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex10" title="10">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex11" title="11">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex12" title="12">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex13" title="13">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex14" title="14">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex15" title="15">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex16" title="16">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex17" title="17">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex18" title="18">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex19" title="19">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex20" title="20">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex21" title="21">
+                <span class="text"></span>
+              </p>
+              <p class="vertex" id="vertex22" title="22">
+                <span class="text"></span>
+              </p>
+            </div>
+
+            <!-- * Result table -->
+            <!-- removed -->
+
+            <!-- * chart Js Canvas-->
+            <div class="chart">
+              <canvas id="myChart"></canvas>
+            </div>
+
+            <!-- * Input box format for in anime questions -->
+            <form class="temp-input" onsubmit="return false">
+              <span class="text1"></span><input class="input" id="ipnum" name="" type="text" /><span
+                class="text2"></span>
+              <p class="error"></p>
+              <input class="submit-btn btn" type="submit" value="Submit" />
+            </form>
+
+            <!-- * Step element -->
+
+            <!-- * Quiz container -->
+            <div class="quiz-container" id="quiz">
+              <div class="quiz-header">
+                <div class="title">
+                  <h2 id="question">Question text</h2>
+                  <!-- <span id="closeQuiz">X</span> -->
+                </div>
+                <ul>
+                  <li>
+                    <input class="answer" id="a" name="answer" type="radio" />
+                    <label for="a" id="a_text">Question</label>
+                  </li>
+                  <li>
+                    <input class="answer" id="b" name="answer" type="radio" />
+                    <label for="b" id="b_text">Question</label>
+                  </li>
+                  <li>
+                    <input class="answer" id="c" name="answer" type="radio" />
+                    <label for="c" id="c_text">Question</label>
+                  </li>
+                  <li>
+                    <input class="answer" id="d" name="answer" type="radio" />
+                    <label for="d" id="d_text">Question</label>
+                  </li>
+                  <li>
+                    <p id="quizAns" style="color: green">India</p>
+                  </li>
+                </ul>
+              </div>
+              <button id="quizSubmit">Submit</button>
+            </div>
+
+            <!-- * Certificate Template -->
+            <!-- <div class="certificate">
+              <div class="header">
+                <img alt="" class="logo" src="./src/images/logo.png" />
+                <span class="title cursive">Certificate of Completion</span>
+              </div>
+              <div class="student-detail">
+                <div class="row">
+                  <span class="bold red" id="certificateStuName" style="text-transform: capitalize">Sneha
+                    Jadon</span>
+                </div>
+                <div class="row">
+                  <span class="cursive" style="text-align: center">has succesfully performed Virtaul Lab
+                    Experiment on
+                  </span>
+                  <span class="bold sans red" style="font-size: 1.5rem; text-transform: capitalize">Foundation in
+                    foamwork</span>
+                </div>
+                <div class="">
+                  <span class="cursive">and secured</span>
+                          <span class="bold sans" id="quizScore">0</span>
+                          <span class="bold sans">/5 Marks</span>
+                          <span class="cursive">at</span>
+                  <span class="bold sans" id="certificateDate">Date 10-10-2023</span>
+                </div>
+                <div class="row">
+                  <span class="cursive">which is developed by
+                    <span class="bold sans">VIRTUAL LABS - IIT Delhi</span>
+                  </span>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- * Slider Box -->
+
+            <!-- ! Delte Reset Buttons -->
+            <!-- * Button template -->
+            <div class="btn btn-reset">Reset</div>
+            <div class="btn btn-delete">Delete</div>
+            <div class="btn btn-check-connections">Check Connections</div>
+            <div class="btn btn-circuit-diagram" style="z-index: 2001">
+              Circuit Diagram
+            </div>
+            <div class="btn btn-connections" id="reset-connections">
+              Reset
+            </div>
+            <!-- ! transparent html element  -->
+            <button class="btn-transparent btn btn-disabled" disabled="" id="overPlayerNextBtn">
+              Next
+            </button>
+            <!-- ! Conecpt Development -->
+            <iframe class="concept_development" frameborder="0" height="700" src="./iframes/index.html"
+              width="1200"></iframe>
+            <!-- * Images that is used in all steps -->
+            <!-- * class main-window-imgs -->
+            <!-- ! Example ->
+                    <!-- ! template images->
+      
+                        <!-- ! Red blink arrow -->
+            <img class="blinkArrowRed" src="./src/images/template_imgs/blinkArrowRed.png">
+            <img alt="arrow" class="main-window-imgs" src="./src/images/template_imgs/arrow.png" title="arrow">
+            <img class="main-window-imgs" src="./src/images/template_imgs/blinkArrow.webp">
+            <img alt="laerrow" class="main-window-imgs" src="./src/images/template_imgs/laerrow.png" title="laerrow">
+            <img alt="laerrow2" class="main-window-imgs" src="./src/images/template_imgs/laerrow2.png"
+              title="laerrow2" />
+            <img alt="logo" class="main-window-imgs" src="./src/images/template_imgs/logo.png" title="logo" />
+            <img alt="man" class="main-window-imgs" src="./src/images/template_imgs/man.png" title="man" />
+            <img alt="measurearrow" class="main-window-imgs" src="./src/images/template_imgs/measurearrow.png"
+              title="measurearrow" />
+            <img alt="measurearrow2" class="main-window-imgs" src="./src/images/template_imgs/measurearrow2.png"
+              title="measurearrow2" />
+            <img alt="redsize" class="main-window-imgs" src="./src/images/template_imgs/redsize.png" title="redsize" />
+            <img alt="speech_off_btn" class="main-window-imgs" src="./src/images/template_imgs/speech_off_btn.png"
+              title="speech_off_btn" />
+            <img alt="speech_on_btn" class="main-window-imgs" src="./src/images/template_imgs/speech_on_btn.png"
+              title="speech_on_btn" />
+            <img alt="talk_cloud" class="main-window-imgs" src="./src/images/template_imgs/talk_cloud.png"
+              title="talk_cloud" />
+            <img alt="iit-delhi-logo" class="main-window-imgs" src="./src/images/template_imgs/iit-delhi-logo.png"
+              title="iit-delhi-logo" />
+            <!-- ! Template images end here -->
+
+            <!-- * Video Box -->
+            <div class="video-box">
+              <video autoplay="" controls class="video" muted="" src=""></video>
+              <div class="controls" title="Click to Restart">
+                <span class="title">Title</span>
+                <button class="btn restart">
+                  <img alt="" src="./src/images/template_imgs/restart_btn.png" />
+                </button>
+              </div>
+            </div>
+
+            <!-- * Image Box -->
+            <div class="image-box">
+              <img alt="" class="image" src="" />
+              <p class="title">Image Box</p>
+            </div>
+
+            <!-- * Question mark box -->
+            <div class="qs qs1">?</div>
+            <div class="qs qs2">?</div>
+            <div class="qs qs3">?</div>
+            <div class="qs qs4">?</div>
+            <div class="qs qs5">?</div>
+            <div class="qs qs6">?</div>
+
+            <!-- ! Tooltip for viewing the pixels/size of elements -->
+            <span class="pixel-tooltip">
+              <div class="background"></div>
+              <div class="details">
+                <span class="text">L:</span> <span class="value">50</span>
+                <span class="text">T:</span> <span class="value">50</span>
+                <span class="text">H:</span> <span class="value">50</span>
+                <span class="text">W:</span> <span class="value">50</span>
+              </div>
+            </span>
+            <!-- ! ++ Source Section Start ---------------------------------------->
+            <!-- * Droppable -->
+            <div class="step-elements">
+              <!-- also style droppable as a box -->
+              <div id="droppable" class="main-window-imgs">
+                <p>Drop Here</p>
+              </div>
+            </div>
+            <!-- Step Images -->
+            <div class="step-images">
+              <!-- * Step Images will be added here -->
+              <img id="background_drone_fly_area" src="./src/images/step/background_drone_fly_area.png" class="main-window-imgs"/>
+              <img id="background_gcp_1" src="./src/images/step/background_gcp_1.png" class="main-window-imgs"/>
+              <img id="background_gcp_2" src="./src/images/step/background_gcp_2.png" class="main-window-imgs"/>
+              <img id="background_gcp_3" src="./src/images/step/background_gcp_3.png" class="main-window-imgs"/>
+              <img id="background_gcp_4" src="./src/images/step/background_gcp_4.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_1" src="./src/images/step/base_setup_phone_display_1.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_10" src="./src/images/step/base_setup_phone_display_10.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_11" src="./src/images/step/base_setup_phone_display_11.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_11_1" src="./src/images/step/base_setup_phone_display_11_1.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_11_2" src="./src/images/step/base_setup_phone_display_11_2.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_12" src="./src/images/step/base_setup_phone_display_12.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_13" src="./src/images/step/base_setup_phone_display_13.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_13_1" src="./src/images/step/base_setup_phone_display_13_1.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_13_2" src="./src/images/step/base_setup_phone_display_13_2.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_13_3" src="./src/images/step/base_setup_phone_display_13_3.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_14" src="./src/images/step/base_setup_phone_display_14.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_14_1" src="./src/images/step/base_setup_phone_display_14_1.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_14_2" src="./src/images/step/base_setup_phone_display_14_2.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_15" src="./src/images/step/base_setup_phone_display_15.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_16" src="./src/images/step/base_setup_phone_display_16.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_16_1" src="./src/images/step/base_setup_phone_display_16_1.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_16_2" src="./src/images/step/base_setup_phone_display_16_2.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_17" src="./src/images/step/base_setup_phone_display_17.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_17_1" src="./src/images/step/base_setup_phone_display_17_1.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_18" src="./src/images/step/base_setup_phone_display_18.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_18_1" src="./src/images/step/base_setup_phone_display_18_1.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_18_10" src="./src/images/step/base_setup_phone_display_18_10.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_18_2" src="./src/images/step/base_setup_phone_display_18_2.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_18_3" src="./src/images/step/base_setup_phone_display_18_3.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_18_4" src="./src/images/step/base_setup_phone_display_18_4.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_18_5" src="./src/images/step/base_setup_phone_display_18_5.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_18_6" src="./src/images/step/base_setup_phone_display_18_6.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_18_7" src="./src/images/step/base_setup_phone_display_18_7.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_18_8" src="./src/images/step/base_setup_phone_display_18_8.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_18_9" src="./src/images/step/base_setup_phone_display_18_9.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_19" src="./src/images/step/base_setup_phone_display_19.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_2" src="./src/images/step/base_setup_phone_display_2.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_20" src="./src/images/step/base_setup_phone_display_20.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_21" src="./src/images/step/base_setup_phone_display_21.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_22" src="./src/images/step/base_setup_phone_display_22.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_3" src="./src/images/step/base_setup_phone_display_3.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_4" src="./src/images/step/base_setup_phone_display_4.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_5" src="./src/images/step/base_setup_phone_display_5.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_6" src="./src/images/step/base_setup_phone_display_6.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_7" src="./src/images/step/base_setup_phone_display_7.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_7_1" src="./src/images/step/base_setup_phone_display_7_1.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_7_2" src="./src/images/step/base_setup_phone_display_7_2.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_7_3" src="./src/images/step/base_setup_phone_display_7_3.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_8" src="./src/images/step/base_setup_phone_display_8.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_9" src="./src/images/step/base_setup_phone_display_9.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_9_1" src="./src/images/step/base_setup_phone_display_9_1.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_9_2" src="./src/images/step/base_setup_phone_display_9_2.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_display_9_3" src="./src/images/step/base_setup_phone_display_9_3.png" class="main-window-imgs"/>
+              <img id="base_setup_phone_dummy_transformed" src="./src/images/step/base_setup_phone_dummy_transformed.png" class="main-window-imgs"/>
+              <img id="base_setup_spray_mark" src="./src/images/step/base_setup_spray_mark.png" class="main-window-imgs"/>
+              <img id="base_setup_spray_paint" src="./src/images/step/base_setup_spray_paint.png" class="main-window-imgs"/>
+              <img id="base_setup_stake" src="./src/images/step/base_setup_stake.png" class="main-window-imgs"/>
+              <img id="base_setup_stake_transformed" src="./src/images/step/base_setup_stake_transformed.png" class="main-window-imgs"/>
+              <img id="base_setup_view_finder_zoom" src="./src/images/step/base_setup_view_finder_zoom.png" class="main-window-imgs"/>
+              <img id="base_setup_view_finder_zoom_screen" src="./src/images/step/base_setup_view_finder_zoom_screen.png" class="main-window-imgs"/>
+              <img id="base_tripod" src="./src/images/step/base_tripod.png" class="main-window-imgs"/>
+              <img id="base_tripod_closed" src="./src/images/step/base_tripod_closed.png" class="main-window-imgs"/>
+              <img id="base_tripod_with_attached_tribrech" src="./src/images/step/base_tripod_with_attached_tribrech.png" class="main-window-imgs"/>
+              <img id="battry" src="./src/images/step/battry.png" class="main-window-imgs"/>
+              <img id="battry1" src="./src/images/step/battry1.png" class="main-window-imgs"/>
+              <img id="black_bcg" src="./src/images/step/black_bcg.png" class="main-window-imgs"/>
+              <img id="box1" src="./src/images/step/box1.png" class="main-window-imgs"/>
+              <img id="box_1" src="./src/images/step/box_1.png" class="main-window-imgs"/>
+              <img id="box_2" src="./src/images/step/box_2.png" class="main-window-imgs"/>
+              <img id="box_3" src="./src/images/step/box_3.png" class="main-window-imgs"/>
+              <img id="box_4" src="./src/images/step/box_4.png" class="main-window-imgs"/>
+              <img id="box_5" src="./src/images/step/box_5.png" class="main-window-imgs"/>
+              <img id="box_6" src="./src/images/step/box_6.png" class="main-window-imgs"/>
+              <img id="box_7" src="./src/images/step/box_7.png" class="main-window-imgs"/>
+              <img id="box_8" src="./src/images/step/box_8.png" class="main-window-imgs"/>
+              <img id="car_trunk_open" src="./src/images/step/car_trunk_open.png" class="main-window-imgs"/>
+              <img id="car_trunk_with_drone_box_and_coness" src="./src/images/step/car_trunk_with_drone_box_and_coness.png" class="main-window-imgs"/>
+              <img id="car_trunk_zoom" src="./src/images/step/car_trunk_zoom.png" class="main-window-imgs"/>
+              <img id="car_trunk_zoom_box" src="./src/images/step/car_trunk_zoom_box.png" class="main-window-imgs"/>
+              <img id="car_trunk_zoom_box_open" src="./src/images/step/car_trunk_zoom_box_open.png" class="main-window-imgs"/>
+              <img id="components_in_trunk" src="./src/images/step/components_in_trunk.png" class="main-window-imgs"/>
+              <img id="cone_1" src="./src/images/step/cone_1.png" class="main-window-imgs"/>
+              <img id="cone_1_shadow" src="./src/images/step/cone_1_shadow.png" class="main-window-imgs"/>
+              <img id="cone_2" src="./src/images/step/cone_2.png" class="main-window-imgs"/>
+              <img id="cone_2_shadow" src="./src/images/step/cone_2_shadow.png" class="main-window-imgs"/>
+              <img id="cone_3" src="./src/images/step/cone_3.png" class="main-window-imgs"/>
+              <img id="cone_3_shadow" src="./src/images/step/cone_3_shadow.png" class="main-window-imgs"/>
+              <img id="cone_4" src="./src/images/step/cone_4.png" class="main-window-imgs"/>
+              <img id="cone_4_shadow" src="./src/images/step/cone_4_shadow.png" class="main-window-imgs"/>
+              <img id="controller_scr1" src="./src/images/step/controller_scr1.png" class="main-window-imgs"/>
+              <img id="controller_scr10" src="./src/images/step/controller_scr10.png" class="main-window-imgs"/>
+              <img id="controller_scr11" src="./src/images/step/controller_scr11.png" class="main-window-imgs"/>
+              <img id="controller_scr12" src="./src/images/step/controller_scr12.png" class="main-window-imgs"/>
+              <img id="controller_scr12_1" src="./src/images/step/controller_scr12_1.png" class="main-window-imgs"/>
+              <img id="controller_scr13" src="./src/images/step/controller_scr13.png" class="main-window-imgs"/>
+              <img id="controller_scr14" src="./src/images/step/controller_scr14.png" class="main-window-imgs"/>
+              <img id="controller_scr14_1" src="./src/images/step/controller_scr14_1.png" class="main-window-imgs"/>
+              <img id="controller_scr14_10" src="./src/images/step/controller_scr14_10.png" class="main-window-imgs"/>
+              <img id="controller_scr14_11" src="./src/images/step/controller_scr14_11.png" class="main-window-imgs"/>
+              <img id="controller_scr14_2" src="./src/images/step/controller_scr14_2.png" class="main-window-imgs"/>
+              <img id="controller_scr14_3" src="./src/images/step/controller_scr14_3.png" class="main-window-imgs"/>
+              <img id="controller_scr14_4" src="./src/images/step/controller_scr14_4.png" class="main-window-imgs"/>
+              <img id="controller_scr14_5" src="./src/images/step/controller_scr14_5.png" class="main-window-imgs"/>
+              <img id="controller_scr14_6" src="./src/images/step/controller_scr14_6.png" class="main-window-imgs"/>
+              <img id="controller_scr14_7" src="./src/images/step/controller_scr14_7.png" class="main-window-imgs"/>
+              <img id="controller_scr14_8" src="./src/images/step/controller_scr14_8.png" class="main-window-imgs"/>
+              <img id="controller_scr14_9" src="./src/images/step/controller_scr14_9.png" class="main-window-imgs"/>
+              <img id="controller_scr15" src="./src/images/step/controller_scr15.png" class="main-window-imgs"/>
+              <img id="controller_scr16" src="./src/images/step/controller_scr16.jpg" class="main-window-imgs"/>
+              <img id="controller_scr2" src="./src/images/step/controller_scr2.png" class="main-window-imgs"/>
+              <img id="controller_scr3" src="./src/images/step/controller_scr3.png" class="main-window-imgs"/>
+              <img id="controller_scr4" src="./src/images/step/controller_scr4.png" class="main-window-imgs"/>
+              <img id="controller_scr5" src="./src/images/step/controller_scr5.png" class="main-window-imgs"/>
+              <img id="controller_scr6" src="./src/images/step/controller_scr6.png" class="main-window-imgs"/>
+              <img id="controller_scr7" src="./src/images/step/controller_scr7.png" class="main-window-imgs"/>
+              <img id="controller_scr8" src="./src/images/step/controller_scr8.png" class="main-window-imgs"/>
+              <img id="controller_scr9" src="./src/images/step/controller_scr9.png" class="main-window-imgs"/>
+              <img id="del" src="./src/images/step/del.png" class="main-window-imgs"/>
+              <img id="drone_box" src="./src/images/step/drone_box.png" class="main-window-imgs"/>
+              <img id="drone_box_open" src="./src/images/step/drone_box_open.png" class="main-window-imgs"/>
+              <img id="drone_final" src="./src/images/step/drone_final.png" class="main-window-imgs"/>
+              <img id="drone_flying" src="./src/images/step/drone_flying.png" class="main-window-imgs"/>
+              <img id="drone_flying_0" src="./src/images/step/drone_flying_0.png" class="main-window-imgs"/>
+              <img id="drone_flying_1" src="./src/images/step/drone_flying_1.png" class="main-window-imgs"/>
+              <img id="drone_flying_2" src="./src/images/step/drone_flying_2.png" class="main-window-imgs"/>
+              <img id="drone_for_fly" src="./src/images/step/drone_for_fly.png" class="main-window-imgs"/>
+              <img id="drone_for_fly_shadow" src="./src/images/step/drone_for_fly_shadow.png" class="main-window-imgs"/>
+              <img id="drone_for_fly_shadow_upscaled" src="./src/images/step/drone_for_fly_shadow_upscaled.png" class="main-window-imgs"/>
+              <img id="drone_power_btn_zoom" src="./src/images/step/drone_power_btn_zoom.png" class="main-window-imgs"/>
+              <img id="drone_power_btn_zoom_1" src="./src/images/step/drone_power_btn_zoom_1.png" class="main-window-imgs"/>
+              <img id="drone_power_btn_zoom_2" src="./src/images/step/drone_power_btn_zoom_2.png" class="main-window-imgs"/>
+              <img id="drone_power_btn_zoom_3" src="./src/images/step/drone_power_btn_zoom_3.png" class="main-window-imgs"/>
+              <img id="drone_power_btn_zoom_4" src="./src/images/step/drone_power_btn_zoom_4.png" class="main-window-imgs"/>
+              <img id="drone_power_btn_zoom_5" src="./src/images/step/drone_power_btn_zoom_5.png" class="main-window-imgs"/>
+              <img id="drone_power_btn_zoom_6" src="./src/images/step/drone_power_btn_zoom_6.png" class="main-window-imgs"/>
+              <img id="drone_rotating" src="./src/images/step/drone_rotating.gif" class="main-window-imgs"/>
+              <img id="drone_rtk" src="./src/images/step/drone_rtk.png" class="main-window-imgs"/>
+              <img id="drone_top_view" src="./src/images/step/drone_top_view.png" class="main-window-imgs"/>
+              <img id="drone_without_wings" src="./src/images/step/drone_without_wings.png" class="main-window-imgs"/>
+              <img id="gcp_1" src="./src/images/step/gcp_1.png" class="main-window-imgs"/>
+              <img id="gcp_2" src="./src/images/step/gcp_2.png" class="main-window-imgs"/>
+              <img id="gcp_3" src="./src/images/step/gcp_3.png" class="main-window-imgs"/>
+              <img id="gcp_4" src="./src/images/step/gcp_4.png" class="main-window-imgs"/>
+              <img id="gcp_setup_map_1" src="./src/images/step/gcp_setup_map_1.png" class="main-window-imgs"/>
+              <img id="gcp_setup_map_2" src="./src/images/step/gcp_setup_map_2.png" class="main-window-imgs"/>
+              <img id="gcp_setup_map_3" src="./src/images/step/gcp_setup_map_3.png" class="main-window-imgs"/>
+              <img id="gcp_setup_map_4" src="./src/images/step/gcp_setup_map_4.png" class="main-window-imgs"/>
+              <img id="gcp_setup_map_5" src="./src/images/step/gcp_setup_map_5.png" class="main-window-imgs"/>
+              <img id="gnss_base" src="./src/images/step/gnss_base.png" class="main-window-imgs"/>
+              <img id="gnss_base_zoom_1" src="./src/images/step/gnss_base_zoom_1.png" class="main-window-imgs"/>
+              <img id="gnss_base_zoom_2_on" src="./src/images/step/gnss_base_zoom_2_on.png" class="main-window-imgs"/>
+              <img id="gnss_base_zoom_3_all_lights" src="./src/images/step/gnss_base_zoom_3_all_lights.png" class="main-window-imgs"/>
+              <img id="gnss_base_zoom_4_on" src="./src/images/step/gnss_base_zoom_4_on.png" class="main-window-imgs"/>
+              <img id="gnss_base_zoom_5_wifi_on" src="./src/images/step/gnss_base_zoom_5_wifi_on.png" class="main-window-imgs"/>
+              <img id="gnss_rover" src="./src/images/step/gnss_rover.png" class="main-window-imgs"/>
+              <img id="gnss_rover_zoom_1" src="./src/images/step/gnss_rover_zoom_1.png" class="main-window-imgs"/>
+              <img id="gnss_rover_zoom_2_on" src="./src/images/step/gnss_rover_zoom_2_on.png" class="main-window-imgs"/>
+              <img id="gnss_rover_zoom_3_all_lights" src="./src/images/step/gnss_rover_zoom_3_all_lights.png" class="main-window-imgs"/>
+              <img id="gnss_rover_zoom_4_on" src="./src/images/step/gnss_rover_zoom_4_on.png" class="main-window-imgs"/>
+              <img id="gnss_rover_zoom_5_wifi" src="./src/images/step/gnss_rover_zoom_5_wifi.png" class="main-window-imgs"/>
+              <img id="helper" src="./src/images/step/helper.png" class="main-window-imgs"/>
+              <img id="i10_slideer" src="./src/images/step/i10_slideer.png" class="main-window-imgs"/>
+              <img id="i10_transparent" src="./src/images/step/i10_transparent.png" class="main-window-imgs"/>
+              <img id="i10_yellow_slide" src="./src/images/step/i10_yellow_slide.png" class="main-window-imgs"/>
+              <img id="img1" src="./src/images/step/img1.jpg" class="main-window-imgs"/>
+              <img id="img10" src="./src/images/step/img10.jpg" class="main-window-imgs"/>
+              <img id="img11" src="./src/images/step/img11.jpg" class="main-window-imgs"/>
+              <img id="img12" src="./src/images/step/img12.jpg" class="main-window-imgs"/>
+              <img id="img13" src="./src/images/step/img13.jpg" class="main-window-imgs"/>
+              <img id="img14" src="./src/images/step/img14.jpg" class="main-window-imgs"/>
+              <img id="img15" src="./src/images/step/img15.jpg" class="main-window-imgs"/>
+              <img id="img16" src="./src/images/step/img16.jpg" class="main-window-imgs"/>
+              <img id="img17" src="./src/images/step/img17.jpg" class="main-window-imgs"/>
+              <img id="img17_GCP_1" src="./src/images/step/img17_GCP_1.jpg" class="main-window-imgs"/>
+              <img id="img17_GCP_10_click_down_arrow" src="./src/images/step/img17_GCP_10_click_down_arrow.jpg" class="main-window-imgs"/>
+              <img id="img17_GCP_2" src="./src/images/step/img17_GCP_2.jpg" class="main-window-imgs"/>
+              <img id="img17_GCP_3" src="./src/images/step/img17_GCP_3.jpg" class="main-window-imgs"/>
+              <img id="img17_GCP_4" src="./src/images/step/img17_GCP_4.jpg" class="main-window-imgs"/>
+              <img id="img17_GCP_5" src="./src/images/step/img17_GCP_5.jpg" class="main-window-imgs"/>
+              <img id="img17_GCP_6" src="./src/images/step/img17_GCP_6.jpg" class="main-window-imgs"/>
+              <img id="img17_GCP_7" src="./src/images/step/img17_GCP_7.jpg" class="main-window-imgs"/>
+              <img id="img17_GCP_8" src="./src/images/step/img17_GCP_8.jpg" class="main-window-imgs"/>
+              <img id="img17_GCP_9" src="./src/images/step/img17_GCP_9.jpg" class="main-window-imgs"/>
+              <img id="img18" src="./src/images/step/img18.jpg" class="main-window-imgs"/>
+              <img id="img19" src="./src/images/step/img19.jpg" class="main-window-imgs"/>
+              <img id="img2" src="./src/images/step/img2.jpg" class="main-window-imgs"/>
+              <img id="img20" src="./src/images/step/img20.jpg" class="main-window-imgs"/>
+              <img id="img21" src="./src/images/step/img21.jpg" class="main-window-imgs"/>
+              <img id="img22" src="./src/images/step/img22.jpg" class="main-window-imgs"/>
+              <img id="img23" src="./src/images/step/img23.jpg" class="main-window-imgs"/>
+              <img id="img24" src="./src/images/step/img24.jpg" class="main-window-imgs"/>
+              <img id="img25" src="./src/images/step/img25.jpg" class="main-window-imgs"/>
+              <img id="img26" src="./src/images/step/img26.jpg" class="main-window-imgs"/>
+              <img id="img27" src="./src/images/step/img27.jpg" class="main-window-imgs"/>
+              <img id="img28" src="./src/images/step/img28.jpg" class="main-window-imgs"/>
+              <img id="img29" src="./src/images/step/img29.jpg" class="main-window-imgs"/>
+              <img id="img3" src="./src/images/step/img3.jpg" class="main-window-imgs"/>
+              <img id="img30" src="./src/images/step/img30.jpg" class="main-window-imgs"/>
+              <img id="img31" src="./src/images/step/img31.jpg" class="main-window-imgs"/>
+              <img id="img32" src="./src/images/step/img32.jpg" class="main-window-imgs"/>
+              <img id="img33" src="./src/images/step/img33.jpg" class="main-window-imgs"/>
+              <img id="img34" src="./src/images/step/img34.jpg" class="main-window-imgs"/>
+              <img id="img35" src="./src/images/step/img35.jpg" class="main-window-imgs"/>
+              <img id="img36" src="./src/images/step/img36.jpg" class="main-window-imgs"/>
+              <img id="img37" src="./src/images/step/img37.jpg" class="main-window-imgs"/>
+              <img id="img38" src="./src/images/step/img38.jpg" class="main-window-imgs"/>
+              <img id="img39" src="./src/images/step/img39.jpg" class="main-window-imgs"/>
+              <img id="img4" src="./src/images/step/img4.jpg" class="main-window-imgs"/>
+              <img id="img40" src="./src/images/step/img40.jpg" class="main-window-imgs"/>
+              <img id="img41" src="./src/images/step/img41.jpg" class="main-window-imgs"/>
+              <img id="img42" src="./src/images/step/img42.jpg" class="main-window-imgs"/>
+              <img id="img43" src="./src/images/step/img43.jpg" class="main-window-imgs"/>
+              <img id="img44" src="./src/images/step/img44.jpg" class="main-window-imgs"/>
+              <img id="img45" src="./src/images/step/img45.jpg" class="main-window-imgs"/>
+              <img id="img46" src="./src/images/step/img46.jpg" class="main-window-imgs"/>
+              <img id="img47" src="./src/images/step/img47.jpg" class="main-window-imgs"/>
+              <img id="img48" src="./src/images/step/img48.jpg" class="main-window-imgs"/>
+              <img id="img49" src="./src/images/step/img49.jpg" class="main-window-imgs"/>
+              <img id="img5" src="./src/images/step/img5.jpg" class="main-window-imgs"/>
+              <img id="img50" src="./src/images/step/img50.jpg" class="main-window-imgs"/>
+              <img id="img51" src="./src/images/step/img51.jpg" class="main-window-imgs"/>
+              <img id="img52" src="./src/images/step/img52.jpg" class="main-window-imgs"/>
+              <img id="img53" src="./src/images/step/img53.jpg" class="main-window-imgs"/>
+              <img id="img54" src="./src/images/step/img54.jpg" class="main-window-imgs"/>
+              <img id="img55" src="./src/images/step/img55.jpg" class="main-window-imgs"/>
+              <img id="img56" src="./src/images/step/img56.jpg" class="main-window-imgs"/>
+              <img id="img57" src="./src/images/step/img57.jpg" class="main-window-imgs"/>
+              <img id="img58" src="./src/images/step/img58.jpg" class="main-window-imgs"/>
+              <img id="img59" src="./src/images/step/img59.jpg" class="main-window-imgs"/>
+              <img id="img6" src="./src/images/step/img6.jpg" class="main-window-imgs"/>
+              <img id="img60" src="./src/images/step/img60.jpg" class="main-window-imgs"/>
+              <img id="img61" src="./src/images/step/img61.jpg" class="main-window-imgs"/>
+              <img id="img62" src="./src/images/step/img62.jpg" class="main-window-imgs"/>
+              <img id="img63" src="./src/images/step/img63.jpg" class="main-window-imgs"/>
+              <img id="img64" src="./src/images/step/img64.jpg" class="main-window-imgs"/>
+              <img id="img7" src="./src/images/step/img7.jpg" class="main-window-imgs"/>
+              <img id="img8" src="./src/images/step/img8.jpg" class="main-window-imgs"/>
+              <img id="img9" src="./src/images/step/img9.jpg" class="main-window-imgs"/>
+              <img id="intro_bcg" src="./src/images/step/intro_bcg.png" class="main-window-imgs"/>
+              <img id="intro_bcg_2" src="./src/images/step/intro_bcg_2.png" class="main-window-imgs"/>
+              <img id="laptop" src="./src/images/step/laptop.png" class="main-window-imgs"/>
+              <img id="laptop_frame" src="./src/images/step/laptop_frame.png" class="main-window-imgs"/>
+              <img id="laptop_screen" src="./src/images/step/laptop_screen.png" class="main-window-imgs"/>
+              <img id="location_drone_arrow" src="./src/images/step/location_drone_arrow.png" class="main-window-imgs"/>
+              <img id="location_heliped_mark" src="./src/images/step/location_heliped_mark.png" class="main-window-imgs"/>
+              <img id="mask" src="./src/images/step/mask.png" class="main-window-imgs"/>
+              <img id="mask_for_click_submit" src="./src/images/step/mask_for_click_submit.png" class="main-window-imgs"/>
+              <img id="memory_card" src="./src/images/step/memory_card.png" class="main-window-imgs"/>
+              <img id="phone_dummy" src="./src/images/step/phone_dummy.png" class="main-window-imgs"/>
+              <img id="phone_empty_screen" src="./src/images/step/phone_empty_screen.png" class="main-window-imgs"/>
+              <img id="phone_screen_bg_blur" src="./src/images/step/phone_screen_bg_blur.png" class="main-window-imgs"/>
+              <img id="prop1" src="./src/images/step/prop1.png" class="main-window-imgs"/>
+              <img id="prop1_1" src="./src/images/step/prop1_1.png" class="main-window-imgs"/>
+              <img id="prop2" src="./src/images/step/prop2.png" class="main-window-imgs"/>
+              <img id="prop2_1" src="./src/images/step/prop2_1.png" class="main-window-imgs"/>
+              <img id="rc" src="./src/images/step/rc.png" class="main-window-imgs"/>
+              <img id="rc2" src="./src/images/step/rc2.png" class="main-window-imgs"/>
+              <img id="rc_on" src="./src/images/step/rc_on.png" class="main-window-imgs"/>
+              <img id="rc_on_2" src="./src/images/step/rc_on_2.png" class="main-window-imgs"/>
+              <img id="rc_wouthandle" src="./src/images/step/rc_wouthandle.png" class="main-window-imgs"/>
+              <img id="rc_zoom" src="./src/images/step/rc_zoom.png" class="main-window-imgs"/>
+              <img id="required_page" src="./src/images/step/required_page.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_10_1_progress" src="./src/images/step/rover_gcp_setup_10_1_progress.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_10_2_progress" src="./src/images/step/rover_gcp_setup_10_2_progress.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_10_3_progress" src="./src/images/step/rover_gcp_setup_10_3_progress.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_10_click_on_measure" src="./src/images/step/rover_gcp_setup_10_click_on_measure.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_11_click_close" src="./src/images/step/rover_gcp_setup_11_click_close.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_12_final" src="./src/images/step/rover_gcp_setup_12_final.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_13_click_on_add" src="./src/images/step/rover_gcp_setup_13_click_on_add.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_14_1_progress" src="./src/images/step/rover_gcp_setup_14_1_progress.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_14_2_progress" src="./src/images/step/rover_gcp_setup_14_2_progress.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_14_3_progress" src="./src/images/step/rover_gcp_setup_14_3_progress.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_14_click_on_measure" src="./src/images/step/rover_gcp_setup_14_click_on_measure.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_15_click_on_close" src="./src/images/step/rover_gcp_setup_15_click_on_close.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_16_final" src="./src/images/step/rover_gcp_setup_16_final.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_17_click_on_add" src="./src/images/step/rover_gcp_setup_17_click_on_add.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_18_1_progress" src="./src/images/step/rover_gcp_setup_18_1_progress.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_18_2_progress" src="./src/images/step/rover_gcp_setup_18_2_progress.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_18_3_progress" src="./src/images/step/rover_gcp_setup_18_3_progress.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_18_click_on_measure" src="./src/images/step/rover_gcp_setup_18_click_on_measure.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_19_click_on_close" src="./src/images/step/rover_gcp_setup_19_click_on_close.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_1_survey" src="./src/images/step/rover_gcp_setup_1_survey.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_20_final" src="./src/images/step/rover_gcp_setup_20_final.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_2_add_clicked" src="./src/images/step/rover_gcp_setup_2_add_clicked.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_3_1_edit_clicked" src="./src/images/step/rover_gcp_setup_3_1_edit_clicked.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_3_edit_clicked" src="./src/images/step/rover_gcp_setup_3_edit_clicked.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_4_1_values_change" src="./src/images/step/rover_gcp_setup_4_1_values_change.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_4_2_values_change" src="./src/images/step/rover_gcp_setup_4_2_values_change.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_4_3_values_change" src="./src/images/step/rover_gcp_setup_4_3_values_change.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_4_save_clicked" src="./src/images/step/rover_gcp_setup_4_save_clicked.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_5_click_on_fix" src="./src/images/step/rover_gcp_setup_5_click_on_fix.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_6_1_progress" src="./src/images/step/rover_gcp_setup_6_1_progress.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_6_2_progress" src="./src/images/step/rover_gcp_setup_6_2_progress.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_6_3_progress" src="./src/images/step/rover_gcp_setup_6_3_progress.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_6_click_on_measure" src="./src/images/step/rover_gcp_setup_6_click_on_measure.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_7_click_close" src="./src/images/step/rover_gcp_setup_7_click_close.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_8_final" src="./src/images/step/rover_gcp_setup_8_final.png" class="main-window-imgs"/>
+              <img id="rover_gcp_setup_9_click_on_add" src="./src/images/step/rover_gcp_setup_9_click_on_add.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_0" src="./src/images/step/rover_setup_phone_display_0.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_1" src="./src/images/step/rover_setup_phone_display_1.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_2" src="./src/images/step/rover_setup_phone_display_2.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_2_1" src="./src/images/step/rover_setup_phone_display_2_1.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_2_2" src="./src/images/step/rover_setup_phone_display_2_2.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_2_3" src="./src/images/step/rover_setup_phone_display_2_3.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_2_4" src="./src/images/step/rover_setup_phone_display_2_4.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_2_5" src="./src/images/step/rover_setup_phone_display_2_5.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_2_6" src="./src/images/step/rover_setup_phone_display_2_6.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_2_7" src="./src/images/step/rover_setup_phone_display_2_7.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_2_8" src="./src/images/step/rover_setup_phone_display_2_8.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_3" src="./src/images/step/rover_setup_phone_display_3.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_4" src="./src/images/step/rover_setup_phone_display_4.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_4_1" src="./src/images/step/rover_setup_phone_display_4_1.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_4_2" src="./src/images/step/rover_setup_phone_display_4_2.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_4_3" src="./src/images/step/rover_setup_phone_display_4_3.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_4_4" src="./src/images/step/rover_setup_phone_display_4_4.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_4_5" src="./src/images/step/rover_setup_phone_display_4_5.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_5" src="./src/images/step/rover_setup_phone_display_5.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_6" src="./src/images/step/rover_setup_phone_display_6.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_7" src="./src/images/step/rover_setup_phone_display_7.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_7_1" src="./src/images/step/rover_setup_phone_display_7_1.png" class="main-window-imgs"/>
+              <img id="rover_setup_phone_display_7_2" src="./src/images/step/rover_setup_phone_display_7_2.png" class="main-window-imgs"/>
+              <img id="rover_setup_portrait_map_1" src="./src/images/step/rover_setup_portrait_map_1.png" class="main-window-imgs"/>
+              <img id="rover_tripod" src="./src/images/step/rover_tripod.png" class="main-window-imgs"/>
+              <img id="rover_tripod_closed" src="./src/images/step/rover_tripod_closed.png" class="main-window-imgs"/>
+              <img id="rover_tripod_closed_with_gnss" src="./src/images/step/rover_tripod_closed_with_gnss.png" class="main-window-imgs"/>
+              <img id="rover_tripod_with_gnss" src="./src/images/step/rover_tripod_with_gnss.png" class="main-window-imgs"/>
+              <img id="screenzoom" src="./src/images/step/screenzoom.png" class="main-window-imgs"/>
+              <img id="screenzoomopen" src="./src/images/step/screenzoomopen.png" class="main-window-imgs"/>
+              <img id="small_map_location_1" src="./src/images/step/small_map_location_1.png" class="main-window-imgs"/>
+              <img id="small_map_location_2" src="./src/images/step/small_map_location_2.png" class="main-window-imgs"/>
+              <img id="small_map_location_3" src="./src/images/step/small_map_location_3.png" class="main-window-imgs"/>
+              <img id="small_map_location_4" src="./src/images/step/small_map_location_4.png" class="main-window-imgs"/>
+              <img id="small_map_location_4_done" src="./src/images/step/small_map_location_4_done.png" class="main-window-imgs"/>
+              <img id="small_map_location_drone_fly" src="./src/images/step/small_map_location_drone_fly.png" class="main-window-imgs"/>
+              <img id="table" src="./src/images/step/table.png" class="main-window-imgs"/>
+              <img id="top_view_background" src="./src/images/step/top_view_background.png" class="main-window-imgs"/>
+              <img id="tribrach" src="./src/images/step/tribrach.png" class="main-window-imgs"/>
+              <img id="tribrach_extension" src="./src/images/step/tribrach_extension.png" class="main-window-imgs"/>
+              <img id="tribrach_rotating_adapter" src="./src/images/step/tribrach_rotating_adapter.png" class="main-window-imgs"/>
+              <img id="tribrach_with_extension_for_base" src="./src/images/step/tribrach_with_extension_for_base.png" class="main-window-imgs"/>
+              <img id="tribrach_zoom_1" src="./src/images/step/tribrach_zoom_1.png" class="main-window-imgs"/>
+              <img id="tribrach_zoom_2" src="./src/images/step/tribrach_zoom_2.png" class="main-window-imgs"/>
+              <img id="xrc" src="./src/images/step/xrc.png" class="main-window-imgs"/>
+              <img id="zoomremotelight" src="./src/images/step/zoomremotelight.png" class="main-window-imgs"/>
+              <img id="zoomremotepower" src="./src/images/step/zoomremotepower.png" class="main-window-imgs"/>
+            </div>
+            <!-- Step Videos -->
+            <div class="step-videos">
+              <!-- * Step Videos will be added here -->
+              <video id="battery_connect" src="./src/videos/step/battery_connect.mp4" class="main-window-imgs"></video>
+              <video id="battery_remove" src="./src/videos/step/battery_remove.mp4" class="main-window-imgs"></video>
+              <video id="binding" src="./src/videos/step/binding.mp4" class="main-window-imgs"></video>
+              <video id="dean_plug_connect_to_battery" src="./src/videos/step/dean_plug_connect_to_battery.mp4" class="main-window-imgs"></video>
+              <video id="dean_plug_connect_to_center_plate" src="./src/videos/step/dean_plug_connect_to_center_plate.mp4" class="main-window-imgs"></video>
+              <video id="esc_to_fc_connections" src="./src/videos/step/esc_to_fc_connections.mp4" class="main-window-imgs"></video>
+              <video id="fc_replace" src="./src/videos/step/fc_replace.mp4" class="main-window-imgs"></video>
+              <video id="pmu_iron_soldering" src="./src/videos/step/pmu_iron_soldering.mp4" class="main-window-imgs"></video>
+              <video id="pmu_to_fc_connections" src="./src/videos/step/pmu_to_fc_connections.mp4" class="main-window-imgs"></video>
+              <video id="remove_upper_plate" src="./src/videos/step/remove_upper_plate.mp4" class="main-window-imgs"></video>
+              <video id="rx_replace" src="./src/videos/step/rx_replace.mp4" class="main-window-imgs"></video>
+              <video id="send_dropping" src="./src/videos/step/send_dropping.mp4" class="main-window-imgs"></video>
+              <video id="yoke_front_to_back" src="./src/videos/step/yoke_front_to_back.mp4" class="main-window-imgs"></video>
+              <video id="yoke_front_to_side" src="./src/videos/step/yoke_front_to_side.mp4" class="main-window-imgs"></video>
+            </div>
+            <!-- * Temp Text is like Text Box -->
+            <div class="step-texts">
+              <!-- <span class="temp temp-text2">This is a temp text</span> -->
+            </div>
+            <!-- * Components -->
+            <div class="step-components">
+              <div class="modal-box">
+                <div class="header">
+                  <span class="title"></span>
+                  <button class="btn close">
+                    <img src="https://img.icons8.com/?size=50&id=6483&format=png&color=000000" alt="">
+                  </button>
+                </div>
+                <div class="body">
+                  <p class="content">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur recusandae itaque inventore
+                    atque maxime consectetur repellat! Odio odit voluptatum quod recusandae repellendus eligendi
+                    asperiores facere temporibus dolore illum nisi laudantium ullam, eaque provident debitis voluptate
+                    esse quam ad sequi tenetur et, dicta numquam voluptatem? Ad in veritatis odio nisi enim.
+                  </p>
+                </div>
+                <div class="footer">
+                  <button class="btn btn1">Close</button>
+                  <button class="btn btn2">Save</button>
+                </div>
+              </div>
+            </div>
+            <!-- ! ++ Source Section Start End ------------------------------------->
+
+          </section>
+
+          <!-- * Anime Footer -->
+          <section class="anime-footer">
+            <btn class="btn btn-back" style="display: none">Back</btn>
+            <!-- * Bottom Subtitles Div -->
+            <div class="steps-subtitle" style="margin-left: 15px">
+              <!-- <p class="user-name">Hey👋 Sneha</p> -->
+              <p class="subtitle" id="subtitle" style="text-align: center; font-size: 1.3em"></p>
+            </div>
+            <btn class="btn btn-next">Next</btn>
+            <btn class="btn btn-save" style="position: absolute; right: 90px; bottom: 5px">Download</btn>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="toolkit">
+      <div class="btn-group">
+        <!-- <button class="btn mute">
+          <img class="btn-mute btn-logo"
+              src="./src/images/template_imgs/speech_off_btn.png"
+              title="Click To Mute"
+          />
+        </button> -->
+        <button class="btn btn-download-pdf" title="Download">
+          <span class="title">Download</span>
+          <img alt="" class="btn-logo" src="./toolkit/btn_download.png" />
+        </button>
+      </div>
+      <img class="blinkArrowYellow" src="./toolkit/setBlinkArrowYellow.png" />
+    </div>
+  </div>
+
+  <script type="module" src="./js/Libs.js"></script>
+  <script type="module" src="./js/Dom.js"></script>
+  <script type="module" src="./js/Elements.js"></script>
+  <script type="module" src="./js/Util.js"></script>
+  <script type="module" src="./js/Anime.js"></script>
+  <script type="module" src="./js/Scenes.js"></script>
+  <script type="module" src="./js/Events.js"></script>
+  <script type="module" src="./js/Src.js"></script>
+  <script type="module" src="./js/Layout.js"></script>
+  <script type="module" src="./js/formulas.js"></script>
+  <script type="module" src="./js/Sliders.js"></script>
+  <script type="module" src="./js/cables.js"></script>
+  <script type="module" src="./js/Main.js"></script>
+
+  <!-- Remove after testing -->
+  <!-- <script src="./js/Src.js"></script> -->
+</body>
+
+</html>

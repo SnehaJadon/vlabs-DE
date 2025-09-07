@@ -1,0 +1,66 @@
+{
+    "version": 2.0,
+    "questions": [
+      {
+        "question": "1. What does a blinking LED on the flight controller indicate?",
+        "answers": {
+          "a": "The flight controller is functioning normally",
+          "b": "The flight controller is receiving power",
+          "c": "There is a communication error",
+          "d": "The battery is fully charged"
+        },
+        "explanations": {},
+        "correctAnswer": "c",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "2. What is the next step if you find loose connections between the receiver and PMU?",
+        "answers": {
+          "a": "Re-solder the connections",
+          "b": "Replace the receiver",
+          "c": "Check the firmware version",
+          "d": "Increase the battery voltage"
+        },
+        "explanations": {},
+        "correctAnswer": "a",
+        "difficulty": "advanced"
+      },
+      {
+        "question": "3. What should you do if the receiver is not responding?",
+        "answers": {
+          "a": "Replace the receiver immediately",
+          "b": "Check the receiver's connection to the PMU and ESC",
+          "c": "Increase the signal strength",
+          "d": "Update the receiver's firmware"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "advanced"
+      },
+      {
+        "question": "4. How can you check the health of a flight controller during troubleshooting?",
+        "answers": {
+          "a": "By testing its response to control inputs via LED indicators",
+          "b": "By checking the battery voltage",
+          "c": "By inspecting the propellers",
+          "d": "By increasing the propeller speed"
+        },
+        "explanations": {},
+        "correctAnswer": "a",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "5. What should you do if you notice physical damage on the receiver?",
+        "answers": {
+          "a": "Continue using the drone if it still connects",
+          "b": "Ignore it if the drone is still flying normally",
+          "c": "Replace the receiver to ensure reliable operation",
+          "d": "Increase the transmitter power"
+        },
+        "explanations": {},
+        "correctAnswer": "c",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+  

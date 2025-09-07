@@ -1,0 +1,66 @@
+{
+    "version": 2.0,
+    "questions": [
+      {
+        "question": "1. What is the primary function of the Power Management Unit (PMU) in a drone?",
+        "answers": {
+          "a": "To control the propellers",
+          "b": "To manage and distribute power to drone components",
+          "c": "To store flight data",
+          "d": "To stabilize the camera"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "2. What is the first step to diagnose a battery issue in a drone?",
+        "answers": {
+          "a": "Check for loose propellers",
+          "b": "Inspect the battery voltage and charge level",
+          "c": "Replace the flight controller",
+          "d": "Reset the drone firmware"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "3. Why is it important to inspect soldering points during drone maintenance?",
+        "answers": {
+          "a": "To improve the drone’s speed",
+          "b": "To ensure proper electrical connections",
+          "c": "To increase battery life",
+          "d": "To reduce the drone's weight"
+        },
+        "explanations": {},
+        "correctAnswer": "b",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "4. What safety precaution should you take before handling a drone battery?",
+        "answers": {
+          "a": "Wear insulated gloves",
+          "b": "Submerge the battery in water",
+          "c": "Disconnect the battery and power off the drone",
+          "d": "Keep the battery connected to avoid resetting the system"
+        },
+        "explanations": {},
+        "correctAnswer": "c",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "5. If a drone fails to power on after checking the battery and PMU, what should you inspect next?",
+        "answers": {
+          "a": "The drone's propellers",
+          "b": "The remote controller battery",
+          "c": "Physical damage and loose connections",
+          "d": "The GPS module"
+        },
+        "explanations": {},
+        "correctAnswer": "c",
+        "difficulty": "beginner"
+      }
+    ]
+  }
+  
