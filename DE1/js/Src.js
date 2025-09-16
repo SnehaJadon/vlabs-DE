@@ -120,9 +120,6 @@ let Src = {
     dean_plug_connect_to_center_plate: new Dom("#dean_plug_connect_to_center_plate"),
     pmu_iron_soldering: new Dom("#pmu_iron_soldering"),
     remove_upper_plate: new Dom("#remove_upper_plate"),
-    send_dropping: new Dom("#send_dropping"),
-    yoke_front_to_back: new Dom("#yoke_front_to_back"),
-    yoke_front_to_side: new Dom("#yoke_front_to_side"),
 }
 
 export default Src;
