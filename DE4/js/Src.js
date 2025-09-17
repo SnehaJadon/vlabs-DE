@@ -351,20 +351,6 @@ let Src = {
     zoomremotepower: new Dom("#zoomremotepower"),
 
     // * New Videos added here
-    battery_connect: new Dom("#battery_connect"),
-    battery_remove: new Dom("#battery_remove"),
-    binding: new Dom("#binding"),
-    dean_plug_connect_to_battery: new Dom("#dean_plug_connect_to_battery"),
-    dean_plug_connect_to_center_plate: new Dom("#dean_plug_connect_to_center_plate"),
-    esc_to_fc_connections: new Dom("#esc_to_fc_connections"),
-    fc_replace: new Dom("#fc_replace"),
-    pmu_iron_soldering: new Dom("#pmu_iron_soldering"),
-    pmu_to_fc_connections: new Dom("#pmu_to_fc_connections"),
-    remove_upper_plate: new Dom("#remove_upper_plate"),
-    rx_replace: new Dom("#rx_replace"),
-    send_dropping: new Dom("#send_dropping"),
-    yoke_front_to_back: new Dom("#yoke_front_to_back"),
-    yoke_front_to_side: new Dom("#yoke_front_to_side"),
 }
 
 export default Src;
