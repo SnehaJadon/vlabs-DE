@@ -362,9 +362,6 @@ let Src = {
     pmu_to_fc_connections: new Dom("#pmu_to_fc_connections"),
     remove_upper_plate: new Dom("#remove_upper_plate"),
     rx_replace: new Dom("#rx_replace"),
-    send_dropping: new Dom("#send_dropping"),
-    yoke_front_to_back: new Dom("#yoke_front_to_back"),
-    yoke_front_to_side: new Dom("#yoke_front_to_side"),
 }
 
 export default Src;
