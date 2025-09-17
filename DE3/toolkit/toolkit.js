@@ -202,6 +202,15 @@ const Download = {
       $(".main-spinner").hide("slow");
     }, this.spinnerTimeoutSeconds);
   },
+  spinner(show){
+    if(show){
+      $(".main-spinner").show();
+      $(".main-container").hide();
+    }else{
+      $(".main-spinner").hide();
+      $(".main-container").show();
+    }
+  },
   detectZoomLevel() {
     var screenCssPixelRatio = (window.outerWidth - 8) / window.innerWidth;
     let zoomLevel = ""
