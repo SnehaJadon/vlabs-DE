@@ -1,37 +1,34 @@
-import { Download, Scenes, Src, Dom, DomList, Util, DB, DeveloperTools } from "./Libs.js";
+import { Download, Scenes, Util } from "./Libs.js";
 
+function init(){
+  function lazyLoading() {
+    const images = Util.getAll("img");
+    images.forEach((img) => {
+      img.loading = "lazy";
+      img.decoding = "async";
+    });
+  }
 
-document.addEventListener('DOMContentLoaded', ()=>{
+  lazyLoading();
+  Download.spinner(true);
+  Download.detectMobileUser();
+  Download.detectZoomLevel();
+}
+
+function Run(){
   // stepcalling
   Scenes.currentStep = 0;
   Scenes.next();
-
   Download.init()
-  // DeveloperTools.init()
+  Download.setHeightOfMainContainerAuto()
+  Download.spinner(false)
+  // DeveloperTools.updateMousePosition()
+}
 
-  $( function() {
-    // $( "img" ).draggable({
-    //   drag: function(event, ui){
-    //     console.log(ui.position.left, ui.position.top)
-    //   }
-    // });
-    // $( ".temp" ).draggable();
-    // $( ".video-box" ).draggable();
-    // $( ".modal-box" ).draggable();
-  } );
+window.addEventListener('load', ()=>{
+  Run()
 });
 
-// setTimeout(() => {
-// $(".main-container").hide();
-// }, 100);
-
-// $(document).ready(function () {
-//   // TODO uncomment
-//   Download.init();
-//   // Download.toggleSpinner()
-
-//   window.onbeforeprint = () => {
-//     Dom.setBlinkArrowRed(-1);
-//     Dom.setBlinkArrow(-1);
-//   };
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  init();
+});

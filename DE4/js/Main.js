@@ -1,30 +1,35 @@
-import { Download, Scenes, DeveloperTools, Util, Steps } from "./Libs.js";
+import { Download, Scenes, Util, Steps } from "./Libs.js";
 
-Download.spinner(true)
+function init(){
+  function lazyLoading() {
+    const images = Util.getAll("img");
+    images.forEach((img) => {
+      img.loading = "lazy";
+      img.decoding = "async";
+    });
+  }
 
-lazyLoading()
+  Scenes.steps = Steps.steps
+  lazyLoading();
+  Download.spinner(true);
+  Download.detectMobileUser();
+  Download.detectZoomLevel();
+}
+
+function Run(){
+  // stepcalling
+  Scenes.currentStep = 0;
+  Scenes.next();
+  Download.init()
+  Download.setHeightOfMainContainerAuto()
+  Download.spinner(false)
+  // DeveloperTools.updateMousePosition()
+}
 
 window.addEventListener('load', ()=>{
   Run()
 });
 
-function lazyLoading(){
-  let images = document.querySelectorAll("img")
-  images.forEach(img=>{
-    img.loading = "lazy"
-    img.decoding = "asynchronous"
-  })
-}
-
-function Run(){
-  Scenes.steps = Steps.steps
-  
-  // stepcalling
-  Scenes.currentStep = 0;
-  Scenes.next();
-
-  Download.init()
-  Download.spinner(false)
-
-  // DeveloperTools.updateMousePosition()
-}
+document.addEventListener("DOMContentLoaded", () => {
+  init();
+});
